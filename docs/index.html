@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0b1424">
+  <meta name="description" content="Навчальний класифікатор тональності англомовних твітів: Naive Bayes, NLTK twitter_samples.">
+  <title>Sentiment Lab — Naive Bayes</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="background-grid" aria-hidden="true"></div>
+  <main class="layout">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">◈</span><span>SENTIMENT<span class="dim"> / LAB</span></span></div>
+      <span class="eyebrow">ЛАБОРАТОРНА РОБОТА №02</span>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow hero-kicker"><span class="dot"></span> NLP · MACHINE LEARNING · NAIVE BAYES</div>
+      <h1>Визначай <em>тональність</em><br>англомовних твітів</h1>
+      <p>Імовірнісна модель на основі теореми Баєса аналізує слова та визначає, чи є повідомлення позитивним або негативним.</p>
+      <div class="hero-meta"><span>Python → JSON → JavaScript</span><span class="separator"></span><span>NLTK twitter_samples</span></div>
+    </section>
+
+    <div class="columns">
+      <section class="panel editor">
+        <div class="panel-title"><span>01 / ТЕСТ МОДЕЛІ</span><span class="mini-label" id="model-status">Завантаження…</span></div>
+        <label for="tweet">Твій твіт англійською</label>
+        <textarea id="tweet" maxlength="500" spellcheck="false" placeholder="I am happy because I am learning :)" rows="5"></textarea>
+        <div class="under-input"><span id="counter">0 / 500</span><span>Введи коротке повідомлення</span></div>
+        <button class="action" id="analyze" type="button" disabled>Проаналізувати <span aria-hidden="true">↗</span></button>
+        <p class="inline-error" id="model-error" role="status"></p>
+        <div class="samples"><div class="samples-head">ШВИДКІ ПРИКЛАДИ</div>
+          <div class="sample-buttons">
+            <button type="button" class="sample" data-tweet="I am happy because I am learning :) ">☺ Позитивний</button>
+            <button type="button" class="sample" data-tweet="This is terrible and I feel awful :( ">☹ Негативний</button>
+            <button type="button" class="sample" data-tweet="This movie is not good at all.">↔ Заперечення</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel outcome" aria-live="polite">
+        <div class="panel-title"><span>02 / РЕЗУЛЬТАТ</span><span class="tiny-indicator">LIVE INFERENCE</span></div>
+        <div class="result-content" id="result-empty"><div class="large-symbol">◎</div><p>Результат з’явиться тут після аналізу повідомлення.</p></div>
+        <div class="result-content hidden" id="result-ready">
+          <span class="result-tag" id="prediction-class">ПОЗИТИВНА</span>
+          <div class="score-value" id="confidence">—</div>
+          <span class="score-description">Умовна ймовірність прогнозованого класу*</span>
+          <div class="meter"><div id="meter-fill"></div></div>
+          <div class="result-rows"><div><span>LOG ODDS</span><strong id="log-odds">—</strong></div>
+            <div><span>ВПІЗНАНІ СЛОВА</span><strong id="matched">—</strong></div>
+          </div>
+          <div class="contributions"><strong>Слова, що вплинули на прогноз</strong><div id="contribution-tags"></div></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="stats" aria-label="Характеристики моделі">
+      <div><span>МЕТОД</span><strong>Naive Bayes</strong></div>
+      <div><span>ДАНІ</span><strong>Twitter samples</strong></div>
+      <div><span>НАВЧАННЯ</span><strong id="train-count">—</strong></div>
+      <div><span>ТЕСТОВА ТОЧНІСТЬ</span><strong id="accuracy">—</strong></div>
+    </section>
+
+    <footer>
+      <div>КДПУ · І-23 · Мінько Богдан</div>
+      <p>*Оцінка моделі, не гарантована впевненість. Англійська мова; нейтральний клас відсутній.</p>
+      <div class="footer-copy">© 2026 · Навчальний проєкт</div>
+    </footer>
+  </main>
+</body>
+</html>

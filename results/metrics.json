@@ -1,0 +1,29 @@
+{
+  "dataset": "NLTK twitter_samples",
+  "positive_count": 5000,
+  "negative_count": 5000,
+  "train_count": 8000,
+  "test_count": 2000,
+  "vocab_size": 9092,
+  "logprior": 0.0,
+  "accuracy": 0.9945,
+  "precision": 0.996985,
+  "recall": 0.992,
+  "f1": 0.994486,
+  "confusion_matrix": [
+    [
+      997,
+      3
+    ],
+    [
+      8,
+      992
+    ]
+  ],
+  "errors": 11,
+  "seed": 42,
+  "class_ratio_train": {
+    "positive": 4000,
+    "negative": 4000
+  }
+}
